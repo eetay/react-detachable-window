@@ -1,15 +1,22 @@
 var path = require('path')
 module.exports = {
-  entry: './src/index.js',
+  mode: 'production',
+  entry: [
+    './src/index.js'
+  ],
   output: {
     path: path.join(__dirname, '../build'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2' // THIS IS THE MOST IMPORTANT LINE! :mindblow: I wasted more than 2 days until realize this was the line most important in all this guide.
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
+      include: [
+        path.resolve(__dirname, '../src'),
+        path.resolve(__dirname, '../examples/src')
+      ],
       loader: 'babel-loader',
       query: {
         presets: ['react', 'es2015', 'stage-1'],

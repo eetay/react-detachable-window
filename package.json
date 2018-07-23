@@ -5,7 +5,8 @@
   "description": "Put a description here",
   "main": "build/index.js",
   "peerDependencies": {
-    "react": "^16.3.0"
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "dependencies": {
     "react": "16.3.2",
@@ -13,8 +14,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --config webpack/webpack.config.js",
-    "build": "NODE_ENV=production webpack --display-error-details --colors --progress --config webpack/webpack.config.js"
+    "dev": "./node_modules/.bin/webpack-dev-server  --inline --config webpack/webpack.dev.config.js",
+    "build": "webpack --display-error-details --colors --progress --config webpack/webpack.prod.config.js"
   },
   "author": {
     "name": "Eetay Natan",
