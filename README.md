@@ -1,6 +1,7 @@
 # react-detachable-window
 Wrap a react component and make it and its children detachable from current browser frame into a popup
 
+this project is work-in-progress at this time
 
 ## Install:
 
