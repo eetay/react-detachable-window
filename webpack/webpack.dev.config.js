@@ -5,9 +5,8 @@ module.exports = {
     './examples/src/index.js'
   ],
   output: {
-    path: path.join(__dirname, '../build'),
+    path: path.join(__dirname, '../examples/build'),
     filename: 'index.js'
-    //libraryTarget: 'commonjs2'
   },
   module: {
     rules: [{
