@@ -16,6 +16,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./node_modules/.bin/webpack-dev-server  --inline --config webpack/webpack.dev.config.js",
     "build": "webpack --display-error-details --colors --progress --config webpack/webpack.prod.config.js",
+    "build-dev": "webpack --display-error-details --colors --progress --config webpack/webpack.dev.config.js && cp examples/src/index.html examples/build",
+    "deploy": "yarn build-dev && gh-pages -d examples/build",
     "publish": "npm run build && git add build/index.js package.json && git commit -m 'publish' && npm publish"
   },
   "author": {
@@ -40,6 +42,7 @@
     "eslint-plugin-jsx-a11y": "6.1.0",
     "eslint-plugin-react": "7.10.0",
     "eslint-plugin-security": "1.4.0",
+    "gh-pages": "1.2.0",
     "react-hot-loader": "4.3.3",
     "webpack": "4.8.3",
     "webpack-cli": "2.1.3",
