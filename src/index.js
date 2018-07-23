@@ -21,7 +21,7 @@ export default class ReactDetachableWindow extends React.PureComponent {
   }
 
   openWindow = () => {
-    const windowOptions = Object.keys(this.props.windowOptions).reduce(this.windowOptionsReducer, '')
+    const windowOptions = Object.keys(this.props.windowOptions || {}).reduce(this.windowOptionsReducer, '')
     this.externalWindow = window.open('', '', windowOptions)
     const self = this
     this.externalWindow.onbeforeunload = function() {
