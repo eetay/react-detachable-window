@@ -1,6 +1,6 @@
 {
   "name": "react-detachable-window",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "license": "UNLICENSED",
   "description": "Put a description here",
   "main": "build/index.js",
@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./node_modules/.bin/webpack-dev-server  --inline --config webpack/webpack.dev.config.js",
     "build": "webpack --display-error-details --colors --progress --config webpack/webpack.prod.config.js",
-    "publish": "yarn build && git add build/index.js && git commit -m 'publish' && npm version minor && npm publish"
+    "publish": "yarn build && git add build/index.js package.json && git commit -m 'publish' && npm version minor && npm publish"
   },
   "author": {
     "name": "Eetay Natan",
