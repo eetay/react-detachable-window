@@ -8,6 +8,18 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
   },
+  "keywords": [
+    "docking",
+    "dockable",
+    "window",
+    "react",
+    "React",
+    "detach",
+    "detachable",
+    "component",
+    "portal",
+    "createPortal"
+  ],
   "dependencies": {
     "react": "16.3.2",
     "react-dom": "16.3.2"
