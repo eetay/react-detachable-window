@@ -26,8 +26,10 @@ import ReactDetachableWindow from 'react-detachable-window'
 [See a live example](https://eetay.github.io/react-detachable-window)
 
 ## Component properties
-* _windowOptions_ - a hash of options passed to the ```window.open(URL, name, specs, replace)``` third parameter
-* _title_ - a string title for the new window
+* _windowOptions_ - Optional: A hash of options passed to the ```window.open(URL, name, specs, replace)``` 'specs' parameter
+* _title_ - Optional: A string title for the new window
+* _reattachButton_ - Optional: A jsx element which, when clicked, closes the popup window
+* _detachButton_ - Optional: A jsx element which, when clicked, opens the popup window
 
 ## TODO List
 * add property to define the buttons for detaching and re-attaching
