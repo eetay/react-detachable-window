@@ -18,12 +18,16 @@ import ReactDetachableWindow from 'react-detachable-window'
 ```
 
 ```javascript
-<ReactDetachableWindow title='I am detached!'>
+<ReactDetachableWindow title='I am detached!' windowOptions={{width: 800, height: 600}}>
     <!-- dom elements defined here will be detached to a new popup window -->
 </ReactDetachableWindow>
 ```
 
 [See a live example](https://eetay.github.io/react-detachable-window)
+
+## Component properties
+* _windowOptions_ - a hash of options passed to the ```window.open(URL, name, specs, replace)``` third parameter
+* _title_ - a string title for the new window
 
 ## TODO List
 * add property to define the buttons for detaching and re-attaching
