@@ -1,4 +1,4 @@
-examples/build
+examples/build/index.js
 .idea
 logs
 *.log

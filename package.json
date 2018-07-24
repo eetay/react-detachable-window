@@ -16,8 +16,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./node_modules/.bin/webpack-dev-server  --inline --config webpack/webpack.dev.config.js",
     "build": "webpack --display-error-details --colors --progress --config webpack/webpack.prod.config.js",
-    "build-dev": "webpack --display-error-details --colors --progress --config webpack/webpack.dev.config.js && cp examples/src/index.html examples/build && cp examples/src/index.js examples/build/index.js.raw && cp examples/src/index.js examples/src/index.js.raw",
-    "deploy": "yarn build-dev && gh-pages -d examples/build",
+    "build-dev": "webpack --display-error-details --colors --progress --config webpack/webpack.dev.config.js && cp examples/src/index.html examples/build && cp examples/src/index.js.raw examples/build/index.js.raw",
+    "gh-pages": "yarn build-dev && gh-pages -d examples/build",
     "publish": "npm run build && git add build/index.js package.json && git commit -m 'publish' && npm publish"
   },
   "author": {
