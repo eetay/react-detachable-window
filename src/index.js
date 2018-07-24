@@ -71,20 +71,34 @@ export default class ReactDetachableWindow extends React.PureComponent {
   }
 
   render() {
+    const reattachButton = (
+      <div onClick={this.closeWindow}>
+        {this.props.reattachButton}
+      </div>
+    ) || (
+      <button type='button' onClick={this.closeWindow}>
+        Close me!
+      </button>
+    )
+    const detachButton = (
+      <div onClick={this.openWindow}>
+        {this.props.detachButton}
+      </div>
+    ) || (
+      <button type='button' onClick={this.openWindow}>
+        Open in popup!
+      </button>
+    )
     return this.state.portal ? ReactDOM.createPortal(
       <div>
         {this.props.children}
-        <button type='button' onClick={this.closeWindow}>
-          Close me!
-        </button>
+        {reattachButton}
       </div>,
       this.containerEl
     ) : (
       <div>
         {this.props.children}
-        <button type='button' onClick={this.openWindow}>
-          Open in popup!
-        </button>
+        {detachButton}
       </div>
     )
   }

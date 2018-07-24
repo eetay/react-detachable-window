@@ -7,11 +7,13 @@ import styles from './highlight.css'
  
 class App extends React.Component {
   render() {
+    var reattachButton = (<div>Close!</div>)
+    var detachButton = (<button type='button'>Detach!</button>)
     return (
-      <div style={{display: 'block'}}>
+      <div style={{ display: 'block' }}>
         <div>This part does NOT detach</div>
-        <ReactDetachableWindow windowOptions={{ width: 800, height: 600 }}>
-          <div style={{backgroundColor:'#f1f1f1'}}>
+        <ReactDetachableWindow windowOptions={{ width: 800, height: 600 }} reattachButton={reattachButton} detachButton={detachButton}>
+          <div style={{ backgroundColor:'#f1f1f1' }}>
           This part IS detachable - try it by clicking the button
           <Highlight className={styles}>
             {this.props.code}
