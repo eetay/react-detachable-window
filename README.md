@@ -12,8 +12,10 @@ npm i react-detachable-window
 
 import ReactDetachableWindow from 'react-detachable-window'
 
+```javascript
 <ReactDetachableWindow>
     <!-- this dom can be detached to popup window -->
 </ReactDetachableWindow>
+```
 
 [live example](https://eetay.github.io/react-detachable-window/)
