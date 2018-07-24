@@ -18,7 +18,7 @@ import ReactDetachableWindow from 'react-detachable-window'
 ```
 
 ```javascript
-<ReactDetachableWindow title='I'm detached!'>
+<ReactDetachableWindow title='I am detached!'>
     <!-- dom elements defined here will be detached to a new popup window -->
 </ReactDetachableWindow>
 ```
