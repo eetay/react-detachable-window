@@ -90,7 +90,7 @@ export default class ReactDetachableWindow extends React.PureComponent {
       }
     } : (
       <button type='button' onClick={this.openWindow}>
-        Open me in new window!
+        Open in popup!
       </button>
     )
     return this.state.portal ? ReactDOM.createPortal(
