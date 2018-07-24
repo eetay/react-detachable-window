@@ -23,7 +23,7 @@ import ReactDetachableWindow from 'react-detachable-window'
 </ReactDetachableWindow>
 ```
 
-[live example](https://eetay.github.io/react-detachable-window/)
+<iframe width="800" height="800" src="https://eetay.github.io/react-detachable-window/">
 
 ## TODO List
 * add property to define the buttons for detaching and re-attaching
