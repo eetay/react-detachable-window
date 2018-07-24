@@ -75,10 +75,10 @@ export default class ReactDetachableWindow extends React.PureComponent {
       ...this.props.reattachButton,
       props: {
         ...this.props.reattachButton.props,
-        onClick: ()=>this.closeWindow()
+        onClick: this.closeWindow
       }
     } : (
-      <button type='button' onClick={()=>this.closeWindow()}>
+      <button type='button' onClick={this.closeWindow}>
         Close me!
       </button>
     )
@@ -86,10 +86,10 @@ export default class ReactDetachableWindow extends React.PureComponent {
       ...this.props.detachButton,
       props: {
         ...this.props.detachButton.props,
-        onClick: ()=>this.openWindow()
+        onClick: this.openWindow
       }
     } : (
-      <button type='button' onClick={()=>this.openWindow()}>
+      <button type='button' onClick={this.openWindow}>
         Open me in new window!
       </button>
     )
