@@ -9,6 +9,15 @@ export default class ReactDetachableWindow extends React.PureComponent {
     this.state = { portal: false }
   }
 
+  addCss(win, url) {
+    var head = win.document.head
+    var link = win.document.createElement('link')
+    link.type = 'text/css'
+    link.rel = 'stylesheet'
+    link.href = url
+    head.appendChild(link)
+  }
+
   windowOptionsReducer = (accumulatedOptions, option) => {
     const prefixOptions = (accumulatedOptions === '') ? '' : `${accumulatedOptions},`
     return `${prefixOptions}${option}=${this.props.windowOptions[option]}`
@@ -23,6 +32,8 @@ export default class ReactDetachableWindow extends React.PureComponent {
   openWindow = () => {
     const windowOptions = Object.keys(this.props.windowOptions || {}).reduce(this.windowOptionsReducer, '')
     this.externalWindow = window.open('', '', windowOptions)
+    this.externalWindow.document.title = this.windowProps.title
+    this.addCss(this.externalWindow, this.windowProps.stylesheets[0].href)
     const self = this
     this.externalWindow.onbeforeunload = function() {
       self.setState({ portal: false })
@@ -32,8 +43,34 @@ export default class ReactDetachableWindow extends React.PureComponent {
     this.setState({ portal: true })
   }
 
+  getStylesheets(document) {
+    const sheets = document.styleSheets
+    if (!sheets) return []
+    const len = sheets.length
+    var ret=[]
+    for (var i=0; i<len; i+=1) {
+      const sheet = sheets[i]
+      ret.push({
+        type: sheet.type,
+        href: sheet.href
+      })
+    }
+    return ret
+  }
+
+  componentDidMount(_props) {
+    this.windowProps = {
+      title: this.props.title || document.title,
+      stylesheets: this.props.stylesheets || this.getStylesheets(document)
+    }
+    this.closeWindow() // initial state of window when widget is launched
+  }
+
+  componentWillUnmount() {
+    this.closeWindow()
+  }
+
   render() {
-    // console.log('RENDER', this.portal, this.state.showWindowPortal)
     return this.state.portal ? ReactDOM.createPortal(
       <div>
         {this.props.children}
@@ -50,15 +87,5 @@ export default class ReactDetachableWindow extends React.PureComponent {
         </button>
       </div>
     )
-  }
-
-  componentDidMount() {
-    // console.log('componentDidMount')
-    this.closeWindow() // initial state of window when widget is launched
-  }
-
-  componentWillUnmount() {
-    // console.log('componentWillUnmount')
-    this.closeWindow() // close window when unmounting
   }
 }
