@@ -18,7 +18,7 @@
     "build": "webpack --display-error-details --colors --progress --config webpack/webpack.prod.config.js",
     "build-dev": "webpack --display-error-details --colors --progress --config webpack/webpack.dev.config.js && cp examples/src/index.html examples/build && cp examples/src/index.js.raw examples/build/index.js.raw",
     "gh-pages": "yarn build-dev && gh-pages -d examples/build",
-    "publish": "npm run build && git add build/index.js package.json && git commit -m 'publish' && npm publish"
+    "new-version": "npm run build && npm version patch && git add build/index.js package.json && git commit -m 'publish' && npm publish"
   },
   "author": {
     "name": "Eetay Natan",
