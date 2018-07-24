@@ -1,3 +1,4 @@
+{::options parse_block_html="true" /}
 # react-detachable-window
 ReactDetachableWindow wraps a portion of the DOM or a group of react components and make it detachable from current window frame into a new window
 it takes care to copy the stylesheets and title from the original frame into the new window or you can define your own
@@ -23,6 +24,7 @@ import ReactDetachableWindow from 'react-detachable-window'
 </ReactDetachableWindow>
 ```
 
+[Live example](https://eetay.github.io/react-detachable-window)
 <iframe width="800" height="800" src="https://eetay.github.io/react-detachable-window/">
 
 ## TODO List
