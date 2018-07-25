@@ -13,7 +13,7 @@ class App extends React.Component {
       <div style={{ display: 'block' }}>
         <div>This part does NOT detach</div>
         <ReactDetachableWindow windowOptions={{ width: 800, height: 600 }} reattachButton={reattachButton} detachButton={detachButton}>
-          <div style={{ backgroundColor:'#e1e1e1' }}>
+          <div style={{ backgroundColor:'#e1e1e1', width: 790 }}>
             This part IS detachable - try it by clicking the button
             <Highlight className={styles}>
               {this.props.code}
