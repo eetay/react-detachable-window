@@ -1,6 +1,6 @@
 {
   "name": "react-detachable-window",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "license": "MIT",
   "description": "Wrap a portion of the DOM or a group of react components and make it detachable into a new window",
   "main": "build/index.js",
