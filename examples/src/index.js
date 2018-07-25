@@ -6,17 +6,17 @@ import Highlight from 'react-highlight'
  
 class App extends React.Component {
   render() {
-    var reattachButton = (<div>Close!</div>)
+    var reattachButton = (<button type='button'>Close!</button>)
     var detachButton = (<button type='button'>Detach!</button>)
     return (
       <div style={{ display: 'block' }}>
         <div>This part does NOT detach</div>
         <ReactDetachableWindow windowOptions={{ width: 800, height: 600 }} reattachButton={reattachButton} detachButton={detachButton}>
-          <div style={{ backgroundColor:'#f1f1f1' }}>
-          This part IS detachable - try it by clicking the button
-          <Highlight className='javascript'>
-            {this.props.code}
-          </Highlight>
+          <div style={{ backgroundColor:'#e1e1e1', width: 790 }}>
+            This part IS detachable - try it by clicking the button
+            <Highlight className='javascript'>
+              {this.props.code}
+            </Highlight>
           </div>
         </ReactDetachableWindow>
         <div>This part does not detach either</div>
