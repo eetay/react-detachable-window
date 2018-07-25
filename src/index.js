@@ -18,9 +18,8 @@ export default class ReactDetachableWindow extends React.PureComponent {
     head.appendChild(link)
   }
 
-  windowOptionsReducer = (accumulatedOptions, option) => {
-    const prefixOptions = (accumulatedOptions === '') ? '' : `${accumulatedOptions},`
-    return `${prefixOptions}${option}=${this.props.windowOptions[option]}`
+  prepareOpenWindowProps(hash) {
+    return Object.keys(hash).map((option)=>`${option}=${hash[option]}`).join(',')
   }
 
   closeWindow = () => {
@@ -30,8 +29,8 @@ export default class ReactDetachableWindow extends React.PureComponent {
   }
 
   openWindow = () => {
-    const windowOptions = Object.keys(this.props.windowOptions || {}).reduce(this.windowOptionsReducer, '')
-    this.externalWindow = window.open('', '', windowOptions)
+    const openWindowProps = this.prepareOpenWindowProps(this.openWindowProps)
+    this.externalWindow = window.open('', '', openWindowProps)
     this.externalWindow.document.title = this.windowProps.title
     this.addCss(this.externalWindow, this.windowProps.stylesheets[0].href)
     const self = this
@@ -63,6 +62,9 @@ export default class ReactDetachableWindow extends React.PureComponent {
       title: this.props.title || document.title,
       stylesheets: this.props.stylesheets || this.getStylesheets(document)
     }
+    const defaultWindowOptions = { location: 0, menubar: 0, status: 0, titlebar: 0, toolbar: 0 }
+    this.openWindowProps = { ...defaultWindowOptions, ...(this.props.windowOptions || {}) }
+    console.log(this.openWindowProps)
     this.closeWindow() // initial state of window when widget is launched
   }
 
@@ -71,20 +73,24 @@ export default class ReactDetachableWindow extends React.PureComponent {
   }
 
   render() {
-    const reattachButton = (
-      <div onClick={this.closeWindow}>
-        {this.props.reattachButton}
-      </div>
-    ) || (
+    const reattachButton = this.props.reattachButton ? {
+      ...this.props.reattachButton,
+      props: {
+        ...this.props.reattachButton.props,
+        onClick: this.closeWindow
+      }
+    } : (
       <button type='button' onClick={this.closeWindow}>
         Close me!
       </button>
     )
-    const detachButton = (
-      <div onClick={this.openWindow}>
-        {this.props.detachButton}
-      </div>
-    ) || (
+    const detachButton = this.props.detachButton ? {
+      ...this.props.detachButton,
+      props: {
+        ...this.props.detachButton.props,
+        onClick: this.openWindow
+      }
+    } : (
       <button type='button' onClick={this.openWindow}>
         Open in popup!
       </button>
