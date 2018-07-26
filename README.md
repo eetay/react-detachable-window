@@ -22,6 +22,18 @@ import ReactDetachableWindow from 'react-detachable-window'
 </ReactDetachableWindow>
 ```
 
+```javascript
+var reattachButton = (<button type='button'>Close!</button>)
+var detachButton = (<button type='button'>Detach!</button>)
+
+<ReactDetachableWindow
+  windowOptions={{ width: 800, height: 600 }}
+  reattachButton={reattachButton}i
+  detachButton={detachButton}>
+  ...
+</ReactDetachableWindow>
+```
+
 ## Component properties
 * _windowOptions_ - Optional: A hash of options passed to the ```window.open(URL, name, specs, replace)``` 'specs' parameter
 * _title_ - Optional: A string title for the new window
