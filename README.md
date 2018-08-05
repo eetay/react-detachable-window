@@ -2,7 +2,7 @@
 ReactDetachableWindow wraps a portion of the DOM or a group of react components and make it detachable from current window frame into a new window
 it takes care to copy the stylesheets and title from the original frame into the new window or you can define your own
 
-<button name="button" onclick="https://eetay.github.io/react-detachable-window">See a live example</button>
+[[See a live example](https://eetay.github.io/react-detachable-window)]
 
 ## Install:
 
